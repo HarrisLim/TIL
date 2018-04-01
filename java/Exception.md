@@ -14,7 +14,7 @@
                   NumberFormatException
 ```  
 
-  - 설명
+  - 설명  
     Error는 자바 시스템 관련 문제 시 발생하는 것이므로 프로그래머가 할 수 없음
     Exception만 프로그래머가 잡을 수 있는데,  
     **CheckedException**은 컴파일러가 컴파일 시에 체킹하는 예외이고,  
