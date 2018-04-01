@@ -66,6 +66,7 @@
             System.out.println("D의 m()");
           }
         }
+
         class DChild extends D {
           String name = "자식이름";
           DChild(){
@@ -81,6 +82,7 @@
             System.out.println("DChild의 m()");
           }
         }
+        
         class DUser {
           public static void main(String[] agrs){
             DChild dc = new DChild();
