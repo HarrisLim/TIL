@@ -1,30 +1,34 @@
 import java.io.*;
-import java.net.*; 
+import java.net.*;
 
-class AClient extends Thread
+class AServer extends Thread
 {
 	BufferedReader brK = new BufferedReader(new InputStreamReader(System.in));
+	int port = 2000;
+	ServerSocket ss;
 	Socket s;
 	InputStream is; // Node
 	BufferedReader brS; // Filter
-	String ip = "10.10.10.171";
 	OutputStream os;
 	PrintWriter pw;
-	int port = 2000;
-	AClient(){
+	String ip;
+	AServer(){
 		try{
-			s = new Socket(ip, port);
-			s.getOutputStream();
-			pln("서버와 연결 성공");
-
+			ss = new ServerSocket(port);
+			System.out.println("서버가 "+port+"포트에서 대기중..");
+			s = ss.accept(); // 이걸하면 대기해.
+			InetAddress ia = s.getInetAddress();
+			ip = ia.getHostAddress();
+			System.out.println("연결완료 IP: " + ip);
+			
 			start();
-		}catch(UnknownHostException ue){
-			pln("네트워크에서 해당 서버를 찾지 못함.");
-		}catch(IOException ie){}
+		}catch(IOException ie){
+			System.out.println("ie -> " + ie);
+		}
 	}
 	public void run(){
 		try{
-			listen();
+			speak();
 		}catch(IOException ie){
 		}
 	}
@@ -51,7 +55,7 @@ class AClient extends Thread
 		try{
 			while(true){
 				String line = brS.readLine();
-				pln("server -> " + line);
+				pln("Client("+ip+") - > " + line);
 			}
 		}catch(IOException ie){
 		}finally{
@@ -66,9 +70,9 @@ class AClient extends Thread
 	}
 	public static void main(String[] args) 
 	{
-		AClient ac = new AClient();
+		AServer as = new AServer();
 		try{
-			ac.speak();
+			as.listen();
 		}catch(IOException ie){}
 	}
 }
