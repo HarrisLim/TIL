@@ -67,8 +67,10 @@ class A extends JFrame // 셀프클래스(1)
 	// 익명 내부클래스(1)
 	b = new JButton("10년 후..");
 	add(b);
-	b.addActionListener(new ActionListener(){ // new ActionListener(){}이렇게 객체를 생성하는데, {}안에 쓰는 것을 내부클래스라고 생각해도 돼.
-						  // 근데, ActionListener는 interface야. 생성자가 없으니까, 객체 생성할 때 기능이 없는 것 뿐이지 객체 생성은 가능.
+	b.addActionListener(new ActionListener(){ // new ActionListener(){}이렇게 객체를 생성하는데,
+						  // {}안에 쓰는 것을 내부클래스라고 생각해도 돼.
+						  // 근데, ActionListener는 interface야. 생성자가 없으니까,
+						  // 객체 생성할 때 기능이 없는 것 뿐이지 객체 생성은 가능.
 		public void actionPerformed(ActionEvent e){
 			Object obj = e.getSource();
 			if(obj == b){
