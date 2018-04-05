@@ -13,7 +13,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class A extends JFrame {
+class A extends JFrame // 셀프클래스(1)
+{
 
 	JButton b;
 	// 유명 내부클래스(1)
@@ -100,6 +101,9 @@ class A extends JFrame {
 
 // 셀프 클래스
 	// 셀프클래스(1)
+	implements ActionListener
+
+	// 셀프클래스(2)
 	public void actionPerformed(ActionEvent e){
 		Object obj = e.getSource();
 		if(obj == b){
@@ -107,7 +111,7 @@ class A extends JFrame {
 		}
 	}
 	
-	// 셀프클래스(2)
+	// 셀프클래스(3)
 	b = new JButton("10년 후..");
 	add(b);
 	b.addActionListener(this);
