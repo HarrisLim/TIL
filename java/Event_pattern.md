@@ -112,4 +112,6 @@ class A extends JFrame {
 	add(b);
 	b.addActionListener(this);
 	setUI();
-```
+```  
+  
+출처 : 김형수선생님
