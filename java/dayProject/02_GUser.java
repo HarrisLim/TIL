@@ -1,4 +1,4 @@
-class 원장 
+class 원장  
 {
 	public static void main(String[] args) 
 	{
