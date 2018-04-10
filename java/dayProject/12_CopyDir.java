@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.*; 
 import java.util.*;
 class CopyDir
 {
@@ -19,7 +19,7 @@ class CopyDir
 	void getPath() {
 		try{
 			String path = null;
-			pln("input File or Directory you wanna copy."); // º¹»çÇÒ ÆÄÀÏ ¹× µğ·ºÅä¸®¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.
+			pln("input File or Directory you wanna copy."); // ë³µì‚¬í•  íŒŒì¼ ë° ë””ë ‰í† ë¦¬ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.
 			path = brFile.readLine();
 			f = new File(path);
 			idx = f.toString().length();
@@ -42,7 +42,7 @@ class CopyDir
 				arrFile.add(file);
 				makeDir(file);
 				is(file);
-			} else { // Æú´õ ¾È¿¡ ÀÖ´Â ÆÄÀÏ
+			} else { // í´ë” ì•ˆì— ìˆëŠ” íŒŒì¼
 				makeFile(file);
 			}
 		}
@@ -53,7 +53,7 @@ class CopyDir
 		f = new File(dirPath);
 		if(!f.exists()) {
 			f.mkdir();
-			pln(f.getName()+"ÆÄÀÏ »ı¼º");
+			pln(f.getName()+"íŒŒì¼ ìƒì„±");
 		}else {
 			File fileForMkdir = new File(dirPath, f.getName());
 			fileForMkdir.mkdir();
@@ -80,7 +80,7 @@ class CopyDir
 			while((count = bis.read(bs)) != -1) {
 				bos.write(bs, 0, count);
 			}
-			pln(f.getName()+" ÆÄÀÏ º¹»ç ¿Ï·á.");
+			pln(f.getName()+" íŒŒì¼ ë³µì‚¬ ì™„ë£Œ.");
 			bos.flush();
 		}catch(IOException ie){
 		}finally{
@@ -115,9 +115,9 @@ class CopyDir
 }
 /*
 
-	1. ÆÄÀÏ ¹× µğ·ºÅÍ¸® ÀĞ¾î¿À±â
-	2. ÆÄÀÏÀÎÁö Æú´õÀÎÁö È®ÀÎ // file is done, should begin directory.
-	3. ÆÄÀÏÀÌ¸é whileµ¹·Á¼­ ³»¿ëÀ» ¾²°í ÇØ´ç Æú´õ¿¡ ÆÄÀÏ º¹»ç, Æú´õ¸é mkdirÇÏ°í ¶Ç ±× ¾È¿¡ µé¾î°¡¼­ Æú´õ³ª ÆÄÀÏº¸±â.
-	Æú´õ¶û ÆÄÀÏÀº °¡Á®¿Ô´Âµ¥, Æú´õ ¾È¿¡ ÀÖ´Â Æú´õ¶û ÆÄÀÏÀ» °¡Á®¿Í¾ßÇÏ´Âµ¥. ¾î¶»°Ô °¡Á®¿Í¾ßÇÒ±î ~~
-	°æ·Î¸¸ ¹Ù²ãÁÖ¸é µÇ´Âµ¥,,,,,,, 
+	1. íŒŒì¼ ë° ë””ë ‰í„°ë¦¬ ì½ì–´ì˜¤ê¸°
+	2. íŒŒì¼ì¸ì§€ í´ë”ì¸ì§€ í™•ì¸ // file is done, should begin directory.
+	3. íŒŒì¼ì´ë©´ whileëŒë ¤ì„œ ë‚´ìš©ì„ ì“°ê³  í•´ë‹¹ í´ë”ì— íŒŒì¼ ë³µì‚¬, í´ë”ë©´ mkdirí•˜ê³  ë˜ ê·¸ ì•ˆì— ë“¤ì–´ê°€ì„œ í´ë”ë‚˜ íŒŒì¼ë³´ê¸°.
+	í´ë”ë‘ íŒŒì¼ì€ ê°€ì ¸ì™”ëŠ”ë°, í´ë” ì•ˆì— ìˆëŠ” í´ë”ë‘ íŒŒì¼ì„ ê°€ì ¸ì™€ì•¼í•˜ëŠ”ë°. ì–´ë–»ê²Œ ê°€ì ¸ì™€ì•¼í• ê¹Œ ~~
+	ê²½ë¡œë§Œ ë°”ê¿”ì£¼ë©´ ë˜ëŠ”ë°,,,,,,, 
 */
