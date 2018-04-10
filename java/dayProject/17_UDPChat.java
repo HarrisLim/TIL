@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.*; 
 import java.util.*;
 import java.net.*;
 import java.awt.*;
@@ -35,12 +35,12 @@ class UDPChat extends Thread
 	}
 	void setUI(){
 		createImageIcon();
-		// (1) JFrame ¼ÂÆÃ
+		// (1) JFrame ì…‹íŒ…
 		f = new JFrame();
 		cp = f.getContentPane();
 		cp.setLayout(new BorderLayout());
 
-		// (2) pNorth ¼ÂÆÃ
+		// (2) pNorth ì…‹íŒ…
 		Color c1 = new Color(184, 207, 229);
 		Color c2 = new Color(99, 130, 191);
 		JPanel pNorth = new JPanel(new BorderLayout());
@@ -62,7 +62,7 @@ class UDPChat extends Thread
 		tfIp.addActionListener(tfH);
 		tfName.addActionListener(tfH);
 
-		// (3) pCenter ¼ÂÆÃ
+		// (3) pCenter ì…‹íŒ…
 		JPanel pCenter = new JPanel(new BorderLayout());
 		pCenter.setBorder(new TitledBorder(new BevelBorder(BevelBorder.RAISED, c1, c2), "Message"));
 		tp = new JTextPane();
@@ -91,8 +91,8 @@ class UDPChat extends Thread
 		f.setVisible(true);
 		f.addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent e){ 
-				// UDPChat.this.f´Â ¾Æ¿ìÅÍÅ¬·¡½º¸¦ Á¢±ÙÇÏ´Â °Í. ±×³É f·Î ÇØµµ µÇ´Âµ¥, ¾Èµå·ÎÀÌµå¿¡¼­´Â ÀÏÄÉÇØ¾ßµÅ Á¤¼®µµ ÀÌ°Å°í.
-				int answer = JOptionPane.showConfirmDialog(UDPChat.this.f, "Á¾·áÇÒ·¡?", "¼±ÅÃ", JOptionPane.OK_CANCEL_OPTION);
+				// UDPChat.this.fëŠ” ì•„ìš°í„°í´ë˜ìŠ¤ë¥¼ ì ‘ê·¼í•˜ëŠ” ê²ƒ. ê·¸ëƒ¥ fë¡œ í•´ë„ ë˜ëŠ”ë°, ì•ˆë“œë¡œì´ë“œì—ì„œëŠ” ì¼ì¼€í•´ì•¼ë¼ ì •ì„ë„ ì´ê±°ê³ .
+				int answer = JOptionPane.showConfirmDialog(UDPChat.this.f, "ì¢…ë£Œí• ë˜?", "ì„ íƒ", JOptionPane.OK_CANCEL_OPTION);
 				if(answer == JOptionPane.YES_OPTION){
 					System.exit(-1);
 				}else{
@@ -113,7 +113,7 @@ class UDPChat extends Thread
 		}catch(SocketException se){
 			System.out.println("Socket Exception");
 		}catch(UnknownHostException ue){
-			System.out.println("ÇØ´ç ¼­¹ö ¸øÃ£À½");
+			System.out.println("í•´ë‹¹ ì„œë²„ ëª»ì°¾ìŒ");
 		}catch(IOException ie){
 			System.out.println("IO Exception");
 		}catch(Exception e){
@@ -136,15 +136,15 @@ class UDPChat extends Thread
 				ds.receive(dp);
 				String msg = new String(bs);
 				if(msg != null) msg = msg.trim();
-				JOptionPane.showMessageDialog(null, msg, clientName, 0, ii); // Æë±Ï ¾î¶»°Ô ³ª¿À°Ô ÇÏÁö ?
+				JOptionPane.showMessageDialog(null, msg, clientName, 0, ii); // í­ê·„ ì–´ë–»ê²Œ ë‚˜ì˜¤ê²Œ í•˜ì§€ ?
 				for(int i =0; i<bs.length; i++){
 					bs[i] = 0;
 				}
 			}
 		}catch(SocketException se){
-			System.out.println("ds»ı¼º ½ÇÆĞ ("+port+"Æ÷Æ® »ç¿ëÁß)");
+			System.out.println("dsìƒì„± ì‹¤íŒ¨ ("+port+"í¬íŠ¸ ì‚¬ìš©ì¤‘)");
 		}catch(IOException ie){
-			System.out.println("¸Ş½ÃÁö ¼ö½Å Áß ¿¡·¯");
+			System.out.println("ë©”ì‹œì§€ ìˆ˜ì‹  ì¤‘ ì—ëŸ¬");
 		}catch(Exception e){
 			System.out.println("Exception");
 		}finally{
@@ -167,9 +167,9 @@ class TfHandler implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		Object obj = e.getSource();
 		if(obj == chat.tfIp){
-			System.out.println("¾ÆÀÌÇÇ ÀÔ·Â: "+ chat.tfIp.getText());
+			System.out.println("ì•„ì´í”¼ ì…ë ¥: "+ chat.tfIp.getText());
 		}else if(obj == chat.tfName){
-			System.out.println("ÀÌ¸§ ÀÔ·Â: "+ chat.tfName.getText());
+			System.out.println("ì´ë¦„ ì…ë ¥: "+ chat.tfName.getText());
 		}else if(obj == chat.bt){ // obj == chat.bt
 			connect();
 		}else{
