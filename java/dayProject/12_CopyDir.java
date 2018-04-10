@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.*; 
 import java.util.*;
 class CopyDir
 {
@@ -34,8 +34,6 @@ class CopyDir
 			makeFile(f);
 		}
 	}
-	// /Users/harris/Documents/java_study/copytest
-	// /Users/harris/Documents/java_study/copytest/text1.txt
 	void loop(File f){
 		File[] files = f.listFiles();
 		for(File file: files){
@@ -66,14 +64,14 @@ class CopyDir
 		try{
 			fis = new FileInputStream(f);
 //			pln("dirPath in makeFile: "+ dirPath);
-			int idx = dirPath.lastIndexOf("/");
-			String path = dirPath.substring(0, idx);
+			//int idx = dirPath.lastIndexOf("/");	//PSY
+			String path = f.toString().substring(idx+1);	//PSY
 			pln("path in makeFile: "+ path +", dirpath: "+ dirPath);
-			fos = new FileOutputStream(new File(path, f.getName()));
-			}catch(FileNotFoundException fe){
-				pln("no file.");
-				getPath();
-			}
+			fos = new FileOutputStream(new File("./"+path));		//PSY
+		}catch(FileNotFoundException fe){
+			pln("no file.");
+			getPath();
+		}
 		bis = new BufferedInputStream(fis);
 		bos = new BufferedOutputStream(fos);
 		try{
@@ -123,5 +121,3 @@ class CopyDir
 	폴더랑 파일은 가져왔는데, 폴더 안에 있는 폴더랑 파일을 가져와야하는데. 어떻게 가져와야할까 ~~
 	경로만 바꿔주면 되는데,,,,,,, 
 */
-
-// /Users/harris/Documents/java_study/copytest
