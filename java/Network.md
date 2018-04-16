@@ -1,5 +1,5 @@
 # Network 
-  server와 client가 연결되는 통로  
+  두 개 이상의 디바이스가 연결되어 통신할 수 있는 환경  
   
 ## protocol 
   server -> client 혹은 client -> server로 데이터를 전송할 때 각각의 맞는 기능을 부여할 수 있다  
