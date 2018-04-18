@@ -1,4 +1,4 @@
-# Stringy Strings // codewars
+# Stringy Strings [codewars (8kyu)]
   - size를 입력받아서 size만큼 101010을 출력하는 것이다
 
 ### 내 코드
