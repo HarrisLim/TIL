@@ -4,7 +4,7 @@
   - 실제로는 한 행마다 돌리는 것으로 생각하지 말고 한 테이블당 돌리는 것으로 이해하자.
   - 같은 테이블에 쓰려면 안해도 돼.  
 
-#### 같은 테이블만 있을 때
+### 같은 테이블만 있을 때
   - for each row를 쓰면 오류 발생
 ```
   create or replace TRIGGER EMP_TRI
@@ -29,7 +29,7 @@
   insert into EMP2(EMPNO, ENAME, JOB) values(4, 'HARRIS', 'SINNGER');
 ```
 
-#### 다른 테이블만 있을 때
+### 다른 테이블만 있을 때
   - for each row를 사용해도, 하지 않아도 가능
 ```
   create or replace TRIGGER EMP_TRI
@@ -43,7 +43,7 @@
   insert into EMP2(EMPNO, ENAME, JOB) values(5, 'HARRIS', 'SINNGER');
 ```
 
-#### 같은 테이블, 다른 테이블이 둘 다 있을 때
+### 같은 테이블, 다른 테이블이 둘 다 있을 때
   - for each row를 쓰면 오류 발생
 ```
   create or replace TRIGGER EMP_TRI
@@ -70,5 +70,5 @@
   insert into EMP2(EMPNO, ENAME, JOB) values(7, 'HARRIS', 'SINNGER');
 ```
 
-#### 결론
+### 결론
 AFTER에 있는 테이블이 BEGIN에 있다면 for each row를 사용하면 안된다
