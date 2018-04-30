@@ -17,3 +17,9 @@
   8. git remote -v
 
   9. git push -u origin master
+  
+
+### 다른 컴퓨터에서 새로운 Repo의 파일 가져오기
+  1. git init
+  2. git remote add origin https://github.com/username/xxx.git
+  3. git pull --rebase origin master // 그냥 --rebase로는 안된다. * current branch를 써줘야해
