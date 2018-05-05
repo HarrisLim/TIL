@@ -16,6 +16,9 @@
     - Web.xml
   - index.html
 
-####
-C:\jeong\Web\tomcat9\conf/server.xml에서 <Host>태그 내에 설정
-  - <Context docBase="C:\jeong\Web\New" path="/nc/"/> // docBase: 경로, nc: 라우터
+#### server.xml파일 설정
+````
+  1. C:\xxx\tomcat9\conf/server.xml을 찾자
+  2. <Host>태그 내에 작성
+    <Context docBase="C:\jeong\Web\New" path="/nc/"/> // docBase: 경로, nc: 라우터
+```
