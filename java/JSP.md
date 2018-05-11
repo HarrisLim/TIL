@@ -4,7 +4,7 @@
   ```
     import javax.servlet.http.*;
     import javax.servlet.*;
-    import java.io.*;
+    import javax.servlet.jsp.*;
   ```
 
 ### JSP Elements (6가지) : 3가지 필수
@@ -15,6 +15,7 @@
     ```
   - 스크립팅원소 ( Scripting Element )
     - <% %> 스크립트렛 Scriptlet
+      - servlet의 service() 안에 구현
       ```
         (1)
           <% 
@@ -34,12 +35,28 @@
           %>
       ```
     - <%! %> 선언 Declaration
-      - 클래스 밑에 선언되는 것 (ex: 멤버변수, 메소드) (스크립트렛은 service() 안에 쓰는 것을 작성)
+      - servlet의 Class 밑에 선언 (ex: 멤버변수, 메소드)
     - <%= %> 식 Expression
+      - servlet의 service()안에 구현
   - 액션 ( Action ) == JSP 표준태그
+    - service()에 생성
     ```
-      <jsp:XXX />  // html의 <br>처럼 이렇게 쓰면 안되고 JSP에서는 끝에 닫는 /를 써줘야한다 (<br>은 가능)
+      // html태그와 다르게 끝에 /를 써줘야해
+      <jsp:useBean id="pool" class="jeong.db.ConnectionPoolBean" scope="session"/>
     ```
+
+### scope (메모리 영역)
+  - page < request < session < application
+  - default : page
+  - page
+    - 각 페이지만
+  - request
+    - 요청하는 객체만
+  - session
+    - 하나의 사용자(브라우저, 서버측에 접속되어 있는 사용자)
+    - 로그인할 때 사용하며 좋다
+  - application
+    - 그냥 딱 한 번만 만들어져. 전체 context에 공유가 된다
 
 ### Comment (주석)
   - <% %> 내
@@ -74,3 +91,10 @@
   3. jsp페이지가 로딩될 때 마다 service()를 수행
   4. jsp페이지가 수정 or 서버종료되면 destroy()를 수행
   5. 해당 페이지에 재접속하면 1번부터 반복 수행
+
+### 변환 과정
+  - 웹페이지에서 JSP를 요청하는 순간 JSP -> JAVA -> Class 순으로 변환
+  - 경로에 보면 jsp에서 변환된 .java파일과 java파일에서 컴파일된 .class파일이 있다.
+    ```
+      tomcat9\work\Catalina\localhost\"라우터이름"\org\apache\jsp
+    ```
