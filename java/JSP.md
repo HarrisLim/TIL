@@ -43,6 +43,14 @@
     ```
       // html태그와 다르게 끝에 /를 써줘야해
       <jsp:useBean id="pool" class="jeong.db.ConnectionPoolBean" scope="session"/>
+
+
+      (1) String name = request.getParameter("name");
+      (2) <jsp:setProperty name="dto" property="name" param="name"/> 
+      (3) <jsp:setProperty name="dto" property="*"/> // * 이렇게 사용하려면 property이름과 param이름이 같아야한다
+
+      (1)번 코드를 (2)번 코드로 쓸 수 있다. (액션 활용)
+      (2)번 코드를 (3)번 코드로 쓸 수 있다. (이게 더 편해 but, 주의사항확인) 
     ```
 
 ### scope (메모리 영역)
@@ -98,3 +106,18 @@
     ```
       tomcat9\work\Catalina\localhost\"라우터이름"\org\apache\jsp
     ```
+
+### 패턴
+  - 용어
+    - Java Beans: 기능 덩어리, JSP의 꽃
+      - DAO: 데이터를 Access한다 ( Data Access Object )
+      - DTO: 데이터를 이동(변환)시킨다 ( Data Transfer Object )
+#### 모델 1
+  - View(html, css, js) + Model(java, db) (MV)
+  - DAO, DTO 클래스를 만들어서 활용했다
+  - DTO
+    - 컬럼명으로 된 멤버변수를 만들고 setter, getter 메소드도 만들었다. 생성자로 멤버변수에 row를 입력
+  - DAO
+    - 각 jsp페이지 마다 씌여질 java코드를 메소드로 분리
+#### 모델 2
+  - 
