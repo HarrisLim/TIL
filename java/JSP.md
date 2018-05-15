@@ -46,7 +46,7 @@
 
 
       (1) String name = request.getParameter("name");
-      (2) <jsp:setProperty name="dto" property="name" param="name"/> 
+      (2) <jsp:setProperty name="dto" property="name" param="name"/> // property: dto의 멤버변수, param은 post방식으로 받아온 name
       (3) <jsp:setProperty name="dto" property="*"/> // * 이렇게 사용하려면 property이름과 param이름이 같아야한다
 
       (1)번 코드를 (2)번 코드로 쓸 수 있다. (액션 활용)
@@ -107,17 +107,41 @@
       tomcat9\work\Catalina\localhost\"라우터이름"\org\apache\jsp
     ```
 
+### DBCP
+  - DataBase Connection Pool
+
 ### 패턴
   - 용어
     - Java Beans: 기능 덩어리, JSP의 꽃
       - DAO: 데이터를 Access한다 ( Data Access Object )
       - DTO: 데이터를 이동(변환)시킨다 ( Data Transfer Object )
-#### 모델 1
-  - View(html, css, js) + Model(java, db) (MV)
+#### 모델 1 (MV)
+  - View(html, css, js) + Model(java, db)
   - DAO, DTO 클래스를 만들어서 활용했다
-  - DTO
-    - 컬럼명으로 된 멤버변수를 만들고 setter, getter 메소드도 만들었다. 생성자로 멤버변수에 row를 입력
   - DAO
     - 각 jsp페이지 마다 씌여질 java코드를 메소드로 분리
-#### 모델 2
-  - 
+  - DTO
+    - 컬럼명으로 된 멤버변수를 만들고 setter, getter 메소드도 만들었다. 생성자로 멤버변수에 row를 입력
+#### 모델 2 (MVC)
+  - Model, View, Controller (실제 형태는 V - C - M라고 보자)
+  - service(Manager) Class를 만든다.
+  - DAO를 public으로 하지 않는다
+  - View에서 View로 갈 수 없다. 꼭 controller를 거쳐야해
+
+### Singleton Object Model
+  - 어떠한 객체를 생성할 때 마다 만든다면 그 객체를 한 번만 생성되게하기 위해 static으로 공유시켜버린다.
+```
+  (1)
+  private AddrService service = new AddrService();
+  public static AddrService getInstance(){
+    return service;
+  }
+
+  (2)
+  private final static AddrService service = new AddrService();
+  public static AddrService getInstance(){
+    return service;
+  }
+
+  (1)번: 기본, (2)번: Singleton Object Model
+```
