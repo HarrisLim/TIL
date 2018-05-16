@@ -7,7 +7,7 @@
     import javax.servlet.jsp.*;
   ```
 
-### JSP Elements (6가지) : 3가지 필수
+### JSP Elements (6가지)
   - 지시어 ( Directive Element )
     - <%@ %>
     ```
@@ -52,6 +52,22 @@
       (1)번 코드를 (2)번 코드로 쓸 수 있다. (액션 활용)
       (2)번 코드를 (3)번 코드로 쓸 수 있다. (이게 더 편해 but, 주의사항확인) 
     ```
+  - EL ( Expression Language )
+    - ${}
+    ```
+      EL과 JSTL을 사용하려면 추가해줘야해.
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    ```
+  - JSTL ( Java Standard Tag Library )
+    - <c:xxx />
+    - JSTL api를 보면 JSTL.core를 많이 쓴다.
+    ```
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    ```
+  - CTL ( Custom Tag Library )
+    - java, jsp로 생성 가능
+    - 직접 만들어서 사용하는 tag
+    - 양날의 검이야, 우리만 쓰면 괜찮은데 다른 사람이 유지보수할 때 힘들다
 
 ### scope (메모리 영역)
   - page < request < session < application
