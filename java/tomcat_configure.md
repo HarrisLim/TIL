@@ -22,3 +22,7 @@
   2. <Host>태그 내에 작성
     <Context docBase="C:\jeong\Web\New" path="/nc/"/> // docBase: 경로, nc: 라우터
 ```
+
+#### 이클립스에서 The import cannot be resolved 안될 때 (이것도 톰캣 초기설정이다.)
+  - Project -> Properties -> Java Build Path -> Libraries -> Add External JARs -> <br>
+    Tomcat\lib -> servlet-api.jar, jsp-api.jar를 add하자 !
