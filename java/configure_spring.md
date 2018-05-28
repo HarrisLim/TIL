@@ -138,7 +138,7 @@
   1. src/main/resources에 jeong.spring.mybatis 패키지 생성
   2. jeong.spring.mybatis 내에 mybatis-config.xml파일 생성
   3. mybatis-config.xml에 추가
-    ```
+```
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -150,12 +150,11 @@
           <mapper resource="jeong/spring/mybatis/Address.xml" />
         </mappers>
       </configuration>
-
-    ```
+```
   4. jeong.spring.mybatis 내에 Address.xml파일 생성
   5. src/main/resources에 jeong.spring3.model 패키지 생성
   6. Address.xml에 추가
-    ```
+```
       <?xml version="1.0" encoding="UTF-8" ?>
       <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -176,12 +175,12 @@
             delete from ADDRESS where SEQ=#{seq}
           </delete>
       </mapper>
-    ```
+```
   7. jeong.spring3.model에 DTO를 만들자. 이름은 Address (이름: AddressDTO X)
   8. DB도 맞게 만들어. 물론 저 위에 있는 조건은 DB가 만들어진 후에 맞춰서 하겠지만 이건 test니까.
   9. 이제 테스트를 위해 JUnit을 사용한다
   10. src/test/java의 jeong.spring3.test에 DataSourceTest클래스를 만들고 밑의 코드 복붙.
-    ```
+```
       package jeong.spring3.test;
 
       import java.sql.Connection;
@@ -208,7 +207,7 @@
           }
         }
       }
-    ```
+```
 
 ### Model and Controller 생성
 #### DAO 생성
