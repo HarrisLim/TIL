@@ -1,6 +1,6 @@
 # Spring 꿀팁
 
-### @RequestParam 쉽게 하기 in Controller on Spring
+### @RequestParam 쉽게 하기 in Controller
   - post방식으로 넘겨올 때, @RequestParam을 여러개 써야한다.<br>
     그런데 DTO를 바로 파라미터로 가져올 수 있기 때문에 DTO를 쓰는 게 더 편하고 간결하다.
   - 여기서 DTO에 있는 생성자를 사용하는 것이 아니라 setter를 사용하는 것을 기억!
@@ -26,7 +26,7 @@
   }
 ```
 
-### 경로 변수화 in Controller on Spring
+### 경로 변수화 in Controller
   - 패스(경로)를 변수화 시킬 수 있다.
   - 이미 write.do가 있으면 여기로 안오고 write.do를 찾아가지만,<br>
     list2.do가 없을 때, list2.do로 하면 list2.jsp페이지로 간다.<br>
@@ -63,7 +63,7 @@
   }
 ```
 
-### 4가지 스코프 추가하는 법 in Controller on Spring
+### 4가지 스코프 추가하는 법 in Controller
 #### Application
   - ServletContext application = session.getServletContext();
 
@@ -88,9 +88,10 @@
 ### DaoImpl or ServiceImpl이 겹칠 때
   - (DAO or Service) Interface는 하나인데 (DAO or Service)를 구현하는 클래스가 2개 이상이면<br>
     serviceImle에서 누구를 가져올지 몰라서 404 Error !!
-  1. DaoImpl or ServiceImpl에서 @Repository("xx")로 이름을 준다.
-  2. ServiceImpl or Controller에서 @Autowired -> @Resource(name="xx")로 바꿔주면 해결 :)
-  - ex)
+  - 해결책 
+    1. DaoImpl or ServiceImpl에서 @Repository("xx")로 이름을 준다.
+    2. ServiceImpl or Controller에서 @Autowired -> @Resource(name="xx")로 바꿔주면 해결 :)
+    - ex)
 ```
   @Autowired ->  @Resource(name="xx")
 ```
