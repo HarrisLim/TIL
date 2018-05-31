@@ -95,3 +95,62 @@
 ```
   @Autowired ->  @Resource(name="xx")
 ```
+
+### ModelAndView 클래스로 attribute 2개 이상 보내기
+```
+  ModelAndView(view, "list", list); // 이런 식으로 view : 경로, "list": key, list: value 이렇게 했었다.
+
+  ModelAndView mv = new ModelAndView();
+  mv.setViewName("/board/list");
+  mv.addObject("page", page);
+  mv.addObject("paging", paging);
+```
+
+### AJAX
+#### response객체에 JSON문자열 담기
+  - Controller에 JSON객체를 만들어주는 코드가 있다
+```
+  @RequestMapping(value= "ajax_t01/search01.do", method=RequestMethod.GET)
+  public void ajaxView01(@RequestParam("seq")int seq, HttpServletResponse response)  {
+    Address address = service.selectService(seq);
+    String addressJson = "null";
+    if(address != null){
+      addressJson = "{\"seq\":\""+address.getSeq()
+      +"\",\"name\":\""+address.getName()
+      +"\",\"addr\":\""+address.getAddr()
+      +"\",\"rdate\":\""+address.getRdate()+"\"}";
+    }
+    try {
+      response.setContentType("Application/json;charset=utf-8");
+      response.getWriter().print(addressJson); // 브라우저에 써주는거야.
+      }catch (IOException e) {
+      e.printStackTrace();
+    }    
+  }
+```
+#### ObjectMapper (Object는 DTO를 의미)
+  - Controller에 JSON객체를 만들어주는 코드가 없고 ObjectMapper(made by codehaus, not by Spring)를 사용.
+  - 당연히 Spring의 것이 아니기 때문에 pom.xml에 ObjectMapper를 사용하는 코드를 추가해줘야한다.
+```
+  @RequestMapping(value= "ajax_t02/search01.do", method=RequestMethod.GET)
+  public void ajaxView01(@RequestParam("seq")int seq, HttpServletResponse response)  {
+    Address address = service.selectService(seq);
+    ObjectMapper mapper = new ObjectMapper();
+    try {
+      response.setContentType("Application/json;charset=utf-8");
+      response.getWriter().print(mapper.writeValueAsString(address));
+    }catch (IOException e) {
+      e.printStackTrace();
+    }       
+  }
+```
+
+#### @ResponseBody
+  - 코드가 굉장히 짧아진다. @ResponseBody와 return타입을 써주면 사용가능.
+```
+  @RequestMapping(value= "ajax_t03/search01.do", method=RequestMethod.GET)
+  public @ResponseBody Address ajaxView01(@RequestParam("seq")int seq)  {
+    Address address = service.selectService(seq);
+    return address;
+  }
+```
