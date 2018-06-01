@@ -154,3 +154,44 @@
     return address;
   }
 ```
+
+### 파일 업로드 and 다운로드
+#### 업로드
+  - 파일을 post방식으로 서버에 보내서 서버에 등록
+  - CommonsMultipartResolver객체와 commons-fileupload, commons-io의 jar파일 필요
+```
+  - servlet-context.xml -
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <beans:property name="defaultEncoding" value="UTF-8" />
+      <beans:property name="maxUploadSize" value="10485760" />
+    </beans:bean>
+
+  - pom.xml -
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.2.1</version> 
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.5</version>
+    </dependency>
+```
+#### 다운로드
+  - 이건 jsp로 만든 View가 아니라 JAVA로 구현한 View이다
+```
+  - servlet-context.xml -
+    <beans:bean id="fileDownloadView" class="jeong.spring3.file.view.FileDownloadView" />
+      <beans:bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+      <beans:property name="order" value="0" />
+    </beans:bean>
+```
+
+### 패키지 생성 순서
+  - 하위폴더를 먼저 만들어서는 안된다. 하위폴더를 먼저 만들고 상위폴더를 만들 수 없어
+  - ex)
+```
+  1. jeong.spring3.file.model
+  2. jeong.spring3.file.model.service
+```
