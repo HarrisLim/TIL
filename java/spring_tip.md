@@ -195,3 +195,18 @@
   1. jeong.spring3.file.model
   2. jeong.spring3.file.model.service
 ```
+
+### 자주 사용하는 Resources 경로 잡아주기
+  - /의 유무를 주의하자
+  -ex
+```
+  - servlet-context.xml - 
+    <beans:beans>태그 내에 추가
+    <resources mapping="/js/**" location="/resources/js/" />
+  
+  - 사용하는 jsp - 
+    <script type="text/javascript" src="./js/stringBuffer.js"></script>
+
+  만약, servlet-context에서 설정해주지 않는다면 밑에 처럼 resources를 추가해야한다. (귀찮아)
+  <script type="text/javascript" src="resources/js/stringBuffer.js"></script>
+```
