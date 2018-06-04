@@ -198,7 +198,7 @@
 
 ### 자주 사용하는 Resources 경로 잡아주기
   - /의 유무를 주의하자
-  -ex
+  - ex
 ```
   - servlet-context.xml - 
     <beans:beans>태그 내에 추가
