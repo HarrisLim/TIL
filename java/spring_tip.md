@@ -210,3 +210,10 @@
   만약, servlet-context에서 설정해주지 않는다면 밑에 처럼 resources를 추가해야한다. (귀찮아)
   <script type="text/javascript" src="resources/js/stringBuffer.js"></script>
 ```
+
+### Tiles framework(from apache)
+  - Spring 3.2버전 이상이여야 한다.
+  - 실제 웹사이트와 같이 구조를 나누어서 사용할 수 있다.
+  - 필요한 클래스와 beans를 추가해서 사용해야 한다.
+  - 각 페이지마다 나눠주는 설정을 하는 xml파일을 추가해야 한다.
+  - header나 footer를 고정시켜놓고 body만 변경할 수 있다.
