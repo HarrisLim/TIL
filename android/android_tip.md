@@ -12,7 +12,12 @@
   - Widget: java에서는 UI-Component라고 했었어. 하나의 쟁반이라고 생각하자.
 
 ### 단위
-  - dp가 가장 많이 쓰인다
+  - dp (Device independent) <- 가장 많이 쓰인다
+  - in (Inches)
+  - mm (Millimeters)
+  - pt (Points)
+  - px (Pixels)
+  - sp (Scaled pixels)
 
 ### 아이콘 변경
   - res 우클릭 - new - image Asset
@@ -55,3 +60,47 @@
   - 사용하는 xml - 
     @dimen/d1
 ```
+
+### Event
+  - xml파일에서 id를 주고, java파일로 와서 그 아이디를 갖고 이벤트를 준다.
+  - 사진 넘기는 소스 (MainActivity.java) 나중에 참고하자.
+```
+  public class MainActivity extends AppCompatActivity {
+    ImageView iv;
+    final static int[] IMGS = {R.drawable.a, R.drawable.song, R.drawable.sin};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      iv = (ImageView)findViewById(R.id.img);
+     
+      iv.setOnTouchListener(new View.OnTouchListener(){ // 익명내부클래스
+        float x=0.0f, y=0.0f;
+        int i=0;
+        float a=0.0f, b=0.0f;
+        @Override
+        public boolean onTouch(View view, MotionEvent ev) {
+          x = ev.getX();
+          y = ev.getY();
+          int action = ev.getAction();
+          if(action == MotionEvent.ACTION_DOWN){
+            a = x;
+          }else if(action == MotionEvent.ACTION_UP){
+            b = x;
+            if (a + 50 < b) i--;
+            else if (a > b+50) i++;
+            if (i >= IMGS.length) i = 0;
+            else if (i < 0) i = IMGS.length - 1;
+            iv.setBackgroundResource(IMGS[i]);
+          }
+          return true;
+        }
+      });
+    }
+  }
+
+```
+
+### 문법 tip
+  - java파일에서 R.drawable.img01을 하면 res 폴더의 drawable 폴더의 img01을 찾는다.<br>
+    R.id.img를 하면 res폴더에서 id가 img인 태그를 찾는다. ex, { findViewById(R.id.img) }
