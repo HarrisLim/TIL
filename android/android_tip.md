@@ -10,7 +10,14 @@
 ### 용어
   - Acticvity: 한 화면의 단위
   - Widget: java에서는 UI-Component라고 했었어. 하나의 쟁반이라고 생각하자.
-
+  - Dialog: 화면 중간에 창이 뜨는 것. (이벤트처리 가능)
+    - Alert dialg
+    - Progress dialog (종류 2개)
+    - DataPicker dialog
+    - Semi dialog
+  - Notification: 앱을 종료해도 notification에 남게 하는 것
+  - Toast: 화면 하단 중간에 알림 창을 띄운다.
+    - 경고창의 위치를 변경 가능 but, 시간초를 변경할 수는 없다.
 ### 단위
   - dp (Device independent) <- 가장 많이 쓰인다
   - in (Inches)
@@ -104,3 +111,26 @@
 ### 문법 tip
   - java파일에서 R.drawable.img01을 하면 res 폴더의 drawable 폴더의 img01을 찾는다.<br>
     R.id.img를 하면 res폴더에서 id가 img인 태그를 찾는다. ex, { findViewById(R.id.img) }
+
+### Resouse 종류
+#### drawable
+  - 아이콘이 아닌 이미지
+  - 
+#### mipmap
+  - 아이콘
+#### layout
+  - layout을 정해주는 xml파일
+### values
+  - 이름이 정해져있는 xml이 있다. 
+  - ex, dimens.xml, strings, ...
+
+### 데이터 참조
+  - xml끼리
+```
+  @color/c01
+```
+  - java에서 xml에 있는 것
+```
+  Resources r = getResource();
+  r.getXXX();
+```
