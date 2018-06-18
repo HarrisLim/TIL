@@ -14,9 +14,10 @@
   e.putString("et_key", et.getText().toString());
 ```
   - DB
+    - server side( Oracle, ...)
     - client side( Sqlite )
 ```
   // DB생성, DB_NAME이라는 이름의 DB가 있다면 OPEN
   SQLiteDatabase db = openOrCreateDatabase("DB_NAME", MODE_PRIVATE, null); 
 ```
-    - server side( Oracle, ...)
+    
