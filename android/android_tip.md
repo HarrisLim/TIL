@@ -134,3 +134,17 @@
   Resources r = getResource();
   r.getXXX();
 ```
+
+### apk만드는 법 
+  - bulid - gensrate signed apk를 클릭
+  - keystore: 보안파일
+    - 보통 하나만 만들지. keystore를 통해서 업로드한 앱은 keystore가 없으면 유지보수를 할 수가 없어.
+
+### animation 용어
+  - res안에 anim 폴더를 만들자 (꼭 anim으로 만들어야한다)
+  - 5가지 태그
+    - alpha 투명도
+    - rotate 회전
+    - scale 크기
+    - translate 이동
+    - 위의 4가지 코드를 합해서 set으로 묶어줄 수 있다. 
