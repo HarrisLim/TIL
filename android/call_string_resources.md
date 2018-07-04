@@ -1,5 +1,5 @@
-# 안드로이드 String.xml 호출법
-  앱을 국제화 시켜줄 때는 String.xml을 사용하는 것은 무조건이다. 
+# 안드로이드 strings.xml 호출법
+  앱을 국제화 시켜줄 때는 strings.xml을 사용하는 것은 무조건이다. 
   사용법을 알아보자.
 ```
   <resources>
