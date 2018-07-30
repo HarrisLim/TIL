@@ -26,3 +26,16 @@
   this.parentNode.parentNode.removeChild(this.parentNode);
 ```
 
+### 형제 태그 삭제
+```
+  // 이전 형제 노드
+    $("#test").prev();
+    $("#test").prevAll();  // #test를 기준으로 이전 '모든' 형제 노드
+
+  // 다음 형제 노드
+    $("#test").next();
+    $("#test").nextAll(); // #test를 기준으로 다음 '모든' 형제 노드
+
+  // 이전/다음 형제노드 모두
+    $("#test").siblings();
+```
