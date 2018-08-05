@@ -39,3 +39,42 @@
   // 이전/다음 형제노드 모두
     $("#test").siblings();
 ```
+
+### ID 존재여부 확인
+```
+  $("#test").length // 존재하면 1, 존재하지 않으면 0
+
+  * javacript
+    document.getElementById("test"); // 존재하면 해당 태그, 존재하지 않으면 null
+```
+
+### name이 test인 태그 모두 가져오기
+```
+  $("input[name=test]);
+
+  // 만약 test가 radio버튼이라면 체크된 버튼의 value를 추출
+  $("input[name=test]:checked").val();
+```
+
+### 선택자의 부모, 형제, 자식 개수 확인
+```
+  // 부모
+  $("#test").parents().length;
+
+  // 형제
+  $("#test").siblings().length;
+
+  // 자식
+  $("#test").children().length;
+```
+
+### 선택자 안의 원하는 태그 잡기
+```
+  // id가 test인 태그 자식에서 input태그를 잡는다.
+  $("#test input");
+```
+
+### Select box에서 index값 가져오기
+```
+  $("#test")[0].selectedIndex;
+```
