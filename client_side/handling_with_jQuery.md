@@ -78,3 +78,10 @@
 ```
   $("#test")[0].selectedIndex;
 ```
+
+### 선택된 checkbox의 check제거
+```
+  // 여기서 주의해야할 점은, attr로 하면 내가 직접 선택한 것은 선택해제가 안되고 
+  // jquery를 사용해서 선택해제한 것만 해제가 된다. 그래서 prop을 사용해야한다. *주의.
+  $("#test [type=checkbox]").prop('checked',false);
+```
