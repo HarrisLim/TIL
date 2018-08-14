@@ -13,6 +13,11 @@
   <c:forEach items="${buildList }" var="build"> // buildList는 controller에서 보내주는 Key값
     이 부분에 build.xx (xx: DTO안에 있는 멤버변수)로 값을 가져올 수 있다. 
   </c:forEach>
+
+  // index사용
+  <c:forEach items="${List }" var="L" varStatus="loop">
+    ${loop.index} // 0부터 시작하는 index
+  </c:forEach>
 ```
 
 ### if else문
