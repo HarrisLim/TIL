@@ -85,3 +85,14 @@
   // jquery를 사용해서 선택해제한 것만 해제가 된다. 그래서 prop을 사용해야한다. *주의.
   $("#test [type=checkbox]").prop('checked',false);
 ```
+
+### 숫자인지 확인하기
+```
+  var int = 1;
+  isNan(int) // false -- 숫자면 false를 반환
+  jQuery.isNumeric(int) // true
+
+  var int ="1"; // 문자열로 저장해도 똑같은 결과다. 
+  isNan(int) // false -- 숫자면 false를 반환
+  jQuery.isNumeric(int) // true
+```
