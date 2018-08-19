@@ -73,3 +73,12 @@
   and: &&, or: ||
   <c:when test="${mapList.monthly eq 0 && mapList.lease ne 0 || mapList.salePrice eq 0}">
 ```
+
+### 날짜형식 변경 (fmt)
+```
+  // 1. 최상단에 fmt를 사용하겠다는 코드 한 줄을 추가
+  <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+  // 2. ex) qna.qna_rdate라는 넘어온 date값의 format을 yyyy.MM.dd로 변경
+  <fmt:formatDate value="${qna.qna_rdate }" pattern="yyyy.MM.dd"/>
+```
