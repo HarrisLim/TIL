@@ -1,4 +1,4 @@
-# CSRF Token 에러 잡기
+# CSRF Token 에러 잡기 ([document](https://docs.spring.io/autorepo/docs/spring-security/3.2.0.CI-SNAPSHOT/reference/html/csrf.html))
   - Spring Security를 사용하니까, 403에러가 발생한다.<br>
     403 forbidden 에러가 발생하는 이유는 CSRF token을 Back단으로 보내주지 않아서 나는 에러이다.<br>
 
